@@ -1,9 +1,17 @@
-import React from 'react';
+import React from "react";
+
+import Wallpaper from "./components/Wallpaper";
+import HomeHeader from "./components/HomeHeader";
+import HomeContent from "./components/HomeContent";
+
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      森语导航！
+      <Wallpaper />
+      <HomeHeader />
+      <HomeContent />
     </div>
   );
 }
