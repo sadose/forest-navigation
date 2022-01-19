@@ -1,0 +1,23 @@
+$WallpaperPadSize: -10px;
+
+.Wallpaper {
+    position: absolute;
+    left: $WallpaperPadSize;
+    top: $WallpaperPadSize;
+    right: $WallpaperPadSize;
+    bottom: $WallpaperPadSize;
+    z-index: -1;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    filter: blur(0px);
+
+    transition: all 300ms linear;
+
+    &[data-searching=true] {
+        transform: scale(1.1);
+        filter: blur(10px) brightness(115%);
+    }
+}
