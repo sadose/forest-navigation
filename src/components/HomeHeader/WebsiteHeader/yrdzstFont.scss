@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "yrdzst";
+    src: url("./assets/yrdzst.eot");
+    /* IE9 */
+    src: url("./assets/yrdzst.eot?#iefix") format("embedded-opentype"),
+        /* IE6-IE8 */
+        url("./assets/yrdzst.woff") format("woff"),
+        /* chrome、firefox */
+        url("./assets/yrdzst.ttf") format("truetype"),
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+        url("./assets/yrdzst.svg#yrdzst") format("svg");
+    /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}

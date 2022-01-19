@@ -1,0 +1,42 @@
+// 前置距离：22vh / 14vh
+
+// 上距：5vh  高：5vh  =  10vh
+
+$SearchSize: 5vh;
+$SearchMarginTop: 5vh;
+
+.SearchInput {
+    margin-top: $SearchMarginTop;
+    height: $SearchSize;
+
+    display: flex;
+    justify-content: center;
+
+    input {
+        box-sizing: border-box;
+
+        width: 320px;
+        max-width: 96vw;
+
+        text-align: center;
+        color: #B4B4B4;
+        letter-spacing: 2px;
+
+        border: gray solid 1px;
+        border-radius: 2vh;
+
+        background-color: #ebebeb75;
+
+        transition: all 300ms linear;
+
+        &:hover,
+        &[data-focus=true] {
+            width: 540px;
+            color: black;
+        }
+
+        &[data-focus=true] {
+            background-color: white;
+        }
+    }
+}

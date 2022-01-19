@@ -1,0 +1,81 @@
+@import "./yrdzstFont.scss";
+
+// 上距：15vh  高：7vh  =  22vh  -  未触发搜索框
+// 上距：9vh  高：5vh  =  14vh  -  触发搜索框
+
+$WebsiteHeaderBigSize: 7vh;
+$WebsiteHeaderSmallSize: 5vh;
+
+$WebsiteHeaderBigMarginTop: 15vh;
+$WebsiteHeaderSmallMarginTop: 9vh;
+
+.WebsiteHeader {
+    margin-top: $WebsiteHeaderBigMarginTop;
+    height: $WebsiteHeaderBigSize;
+
+    font-size: $WebsiteHeaderBigSize;
+
+    display: flex;
+    justify-content: center;
+    column-gap: 25px;
+
+    transition: all 300ms linear;
+
+    &[data-searching=true] {
+        margin-top: $WebsiteHeaderSmallMarginTop;
+        height: $WebsiteHeaderSmallSize;
+
+        font-size: $WebsiteHeaderSmallSize;
+    }
+
+    img {
+        transform: scale(0.8);
+    }
+
+    >span {
+        font-family: "yrdzst", "微软雅黑", "楷体";
+        line-height: 140%;
+        font-size: 70%;
+
+        color: white;
+
+        .text-sen {
+            color: #5ED446;
+            letter-spacing: 10px;
+            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+        }
+
+        .text-yu {
+            color: #FFC240;
+            letter-spacing: 10px;
+            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+        }
+
+        .text-dao {
+            color: #8B9BE0;
+            letter-spacing: 10px;
+            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+        }
+
+        .text-hang {
+            color: #8B9BE0;
+            letter-spacing: 10px;
+            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+        }
+
+        .version {
+            margin-left: 12px;
+            font-size: 60%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .WebsiteHeader {
+        margin-top: 10vh;
+
+        &[data-searching=true] {
+            margin-top: 6vh;
+        }
+    }
+}
