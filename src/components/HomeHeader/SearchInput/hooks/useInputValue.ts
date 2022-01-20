@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReduxState } from "../../../../definitions/ReduxDef";
 import { searchTextCreater } from "../../../../redux/actions";
 
-export default function useInputValue(initValue: string) {
+export default function useInputValue(
+  initValue: string
+): [string, (newValue: string) => void, string] {
   const [inputValue, setInputValue] = useState(initValue);
   const searchText: string = useSelector<ReduxState, any>((state) => state.searchText);
   const dispatch = useDispatch();
@@ -13,5 +15,6 @@ export default function useInputValue(initValue: string) {
       dispatch(searchTextCreater(newValue));
       setInputValue(newValue);
     },
-  ] as [string, (newValue: string) => void];
+    inputValue,
+  ];
 }
