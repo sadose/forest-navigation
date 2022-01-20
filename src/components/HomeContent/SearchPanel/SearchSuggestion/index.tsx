@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { ReduxState } from "../../../../definitions/ReduxDef";
+import { getDefaultSearchUrl } from "../../../../utils/userSettings/getUserSettings";
 
 import "./index.scss";
 
@@ -24,6 +25,8 @@ export default function SearchSuggestion() {
       });
   }, [searchText]);
 
+  const defaultSearchUrl = getDefaultSearchUrl();
+
   return (
     <div className="SearchSuggestion">
       <div className="suggestions">
@@ -36,7 +39,7 @@ export default function SearchSuggestion() {
           <div
             className="suggestion-text"
             key={value}
-            onClick={() => searchSuggestionClick("https://www.baidu.com/s?wd=", value)}
+            onClick={() => searchSuggestionClick(defaultSearchUrl, value)}
           >
             {value}
           </div>
@@ -44,7 +47,4 @@ export default function SearchSuggestion() {
       </div>
     </div>
   );
-}
-function EffectCallback(arg0: () => Promise<any>, as: any, EffectCallback: any, arg3: string[]) {
-  throw new Error("Function not implemented.");
 }

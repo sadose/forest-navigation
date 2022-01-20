@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { ReduxState } from "../../../definitions/ReduxDef";
 
 import { isSearchingCreater } from "../../../redux/actions";
+
+import { getDefaultSearchUrl } from "../../../utils/userSettings/getUserSettings";
 
 import useInputValue from "./hooks/useInputValue";
 
@@ -19,6 +22,8 @@ export default function SearchInput() {
       inputRef.current && inputRef.current.focus();
     }
   }, [inputValue]);
+
+  const defaultSearchUrl = getDefaultSearchUrl();
 
   return (
     <div className="SearchInput">
@@ -51,7 +56,7 @@ export default function SearchInput() {
         onKeyPress={(e) => {
           const inp = e.target as HTMLInputElement;
           if (e.key === "Enter") {
-            window.open("https://www.baidu.com/s?wd=" + encodeURIComponent(inp.value), "_blank");
+            window.open(defaultSearchUrl + encodeURIComponent(inp.value), "_blank");
           }
         }}
         data-focus={isSearching}

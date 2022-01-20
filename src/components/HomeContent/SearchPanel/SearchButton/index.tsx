@@ -1,8 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { SearchEngine, AllSearchEngines } from "../../../../definitions/SearchEnginesDef";
 import { ReduxState } from "../../../../definitions/ReduxDef";
+import { USER_SEARCH_ENGINES } from "../../../../definitions/UserSettingsDef";
+
 import { isSearchingCreater, searchTextCreater } from "../../../../redux/actions";
+
+import getUserSettings from "../../../../utils/userSettings/getUserSettings";
 
 import "./index.scss";
 
@@ -15,32 +20,19 @@ function searchBtnClick(url: string, text: string) {
 export default function SearchButton() {
   const searchText: string = useSelector<ReduxState, any>((state) => state.searchText);
   const dispatch = useDispatch();
-  // Todo: 动态生成搜索按钮
-  const searchEngings = [
-    {
-      name: "百度",
-      nameEn: "baidu",
-      url: "https://www.baidu.com/s?wd=",
-    },
-    {
-      name: "必应",
-      nameEn: "bing",
-      url: "https://cn.bing.com/search?q=",
-    },
-    {
-      name: "Google",
-      nameEn: "google",
-      url: "https://www.google.com.hk/search?q=",
-    },
-  ];
+  const searchEngings: SearchEngine[] = getUserSettings(USER_SEARCH_ENGINES);
   return (
     <div className="SearchButton">
       {searchText ? (
         <div className="btns">
-          {searchEngings.map((v) => (
-            <div className="search" onClick={searchBtnClick(v.url, searchText)} key={v.nameEn}>
-              <img src={require("./assets/" + v.nameEn + ".png")} alt={v.name} />
-              <span>{v.name}</span>
+          {searchEngings.map((v: SearchEngine) => (
+            <div
+              className="search"
+              onClick={searchBtnClick(AllSearchEngines[v].url, searchText)}
+              key={v}
+            >
+              <img src={require("./assets/" + v + ".png")} alt={AllSearchEngines[v].name} />
+              <span>{AllSearchEngines[v].name}</span>
             </div>
           ))}
           <div className="clear" onClick={() => dispatch(searchTextCreater(""))}>
@@ -55,8 +47,11 @@ export default function SearchButton() {
       ) : (
         <div className="info">
           您的默认搜索引擎为
-          <img src={require("./assets/baidu.png")} alt="百度" />
-          <span>百度</span>
+          <img
+            src={require("./assets/" + searchEngings[0] + ".png")}
+            alt={AllSearchEngines[searchEngings[0]].name}
+          />
+          <span>{AllSearchEngines[searchEngings[0]].name}</span>
         </div>
       )}
     </div>

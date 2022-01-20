@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
 
 import { ReduxAction } from "../definitions/ReduxDef";
+import { USER_WALLPAPER } from "../definitions/UserSettingsDef";
+
+import getUserSettings from "../utils/userSettings/getUserSettings";
 
 import { CHANGE_WALLPAPER, IS_SEARCHING, SEARCH_TEXT } from "./actionTypes";
 
@@ -8,14 +11,7 @@ import { CHANGE_WALLPAPER, IS_SEARCHING, SEARCH_TEXT } from "./actionTypes";
 
 function changeWallpaper(state: string = "", action: ReduxAction) {
   if (!state) {
-    const userWallpaperSetting: string | null = window.localStorage.getItem("userWallpaperSetting");
-    if (userWallpaperSetting) {
-      state = userWallpaperSetting;
-    } else {
-      // Todo: 如果刚加载页面且本地存储没有壁纸信息，应当判断是否已登录来从服务端请求壁纸设置
-      state = "beach";
-      window.localStorage.setItem("userWallpaperSetting", "beach");
-    }
+    state = getUserSettings(USER_WALLPAPER);
   }
   switch (action.type) {
     case CHANGE_WALLPAPER:

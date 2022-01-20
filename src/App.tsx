@@ -4,9 +4,12 @@ import Wallpaper from "./components/Wallpaper";
 import HomeHeader from "./components/HomeHeader";
 import HomeContent from "./components/HomeContent";
 
+import { initUserSettings } from "./utils/userSettings/getUserSettings";
+
 import "./App.scss";
 
 function App() {
+  initUserSettings();
   return (
     <div className="App">
       <Wallpaper />

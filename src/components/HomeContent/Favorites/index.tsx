@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 
 import { FavoritesItem } from "../../../definitions/ModelsDef";
 import { ReduxState } from "../../../definitions/ReduxDef";
+import { USER_FAVORITES } from "../../../definitions/UserSettingsDef";
+
+import getUserSettings from "../../../utils/userSettings/getUserSettings";
 
 import "./index.scss";
 
@@ -13,44 +16,7 @@ function favoritesItemClick(url: string) {
 }
 
 export default function Favorites() {
-  let favoritesList: FavoritesItem[] = JSON.parse(
-    window.localStorage.getItem("userFavoritesList") || "[]"
-  );
-  if (!favoritesList.length && !window.localStorage.getItem("userFavoritesListModified")) {
-    favoritesList = [
-      {
-        title: "知乎",
-        url: "https://www.zhihu.com/",
-        icon: "https://static.zhihu.com/heifetz/favicon.ico",
-      },
-      {
-        title: "哔哩哔哩",
-        url: "https://www.bilibili.com/",
-        icon: "favicon.ico",
-      },
-      {
-        title: "力扣",
-        url: "https://leetcode-cn.com/",
-        icon: "favicon.ico",
-      },
-      {
-        title: "MDN Web Docs",
-        url: "https://developer.mozilla.org/zh-CN/",
-        icon: "https://developer.mozilla.org/favicon.ico",
-      },
-      {
-        title: "React中文文档",
-        url: "https://react.docschina.org/",
-        icon: "favicon.ico",
-      },
-      {
-        title: "大森的博客",
-        url: "https://sadose.github.io/",
-        icon: "https://sadose.github.io/images/icons/logo-32.png",
-      },
-    ];
-    window.localStorage.setItem("userFavoritesList", JSON.stringify(favoritesList));
-  }
+  let favoritesList: FavoritesItem[] = getUserSettings(USER_FAVORITES);
   const [favoritesData, setFavoritesData] = useState(favoritesList);
   const [boxShow, setBoxShow] = useState(false);
   const isSearching: boolean = useSelector<ReduxState, any>((state) => state.isSearching);
