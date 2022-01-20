@@ -1,0 +1,46 @@
+.SearchSuggestion {
+    text-align: center;
+
+    box-sizing: border-box;
+
+    max-height: calc(100% - 36px);
+
+    padding-top: 5vh;
+
+    >.suggestions {
+        display: inline-flex;
+        flex-flow: column;
+
+        width: 500px;
+        max-width: 96vw;
+
+        box-sizing: border-box;
+
+        >.suggestion-header {
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        >.suggestion-text {
+            padding: 6px 24px;
+            font-size: 14px;
+            color: gray;
+
+            cursor: pointer;
+        }
+
+        >.suggestion-text,
+        >.suggestion-header {
+            text-align: left;
+            letter-spacing: 2px;
+
+            border-bottom: rgb(160, 160, 160) solid 1px;
+        }
+
+        >.suggestion-text:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+            color: black;
+        }
+    }
+}
