@@ -7,12 +7,14 @@
 
     padding-top: 5vh;
 
+    overflow-y: auto;
+
     >.suggestions {
         display: inline-flex;
         flex-flow: column;
 
         width: 500px;
-        max-width: 96vw;
+        max-width: 94vw;
 
         box-sizing: border-box;
 

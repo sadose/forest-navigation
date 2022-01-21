@@ -4,7 +4,7 @@
 
     >.btns {
         display: inline-flex;
-        column-gap: 12px;
+        column-gap: 10px;
 
         >.search:hover {
             background-color: rgba(144, 238, 144, 0.3);
@@ -62,6 +62,40 @@
 
         >span {
             font-weight: bold;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .SearchButton>.btns {
+        column-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .SearchButton {
+        font-size: 12px;
+
+        >.btns {
+            column-gap: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .SearchButton {
+        font-size: 10px;
+
+        >.btns {
+            column-gap: 6px;
+
+            >.search,
+            >.clear,
+            >.close {
+                >span {
+                    display: none;
+                }
+            }
         }
     }
 }

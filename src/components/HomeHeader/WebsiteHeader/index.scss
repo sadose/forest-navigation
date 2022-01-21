@@ -28,7 +28,7 @@ $WebsiteHeaderSmallMarginTop: 9vh;
         font-size: $WebsiteHeaderSmallSize;
     }
 
-    img {
+    >img {
         height: 100%;
         transform: scale(0.8);
     }
@@ -40,31 +40,28 @@ $WebsiteHeaderSmallMarginTop: 9vh;
 
         color: white;
 
-        .text-sen {
+        >.text-sen {
             color: #5ED446;
-            letter-spacing: 10px;
-            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
         }
 
-        .text-yu {
+        >.text-yu {
             color: #FFC240;
-            letter-spacing: 10px;
-            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
         }
 
-        .text-dao {
+        >.text-dao,
+        >.text-hang {
             color: #8B9BE0;
+        }
+
+        >.text-sen,
+        >.text-yu,
+        >.text-dao,
+        >.text-hang {
             letter-spacing: 10px;
             text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
         }
 
-        .text-hang {
-            color: #8B9BE0;
-            letter-spacing: 10px;
-            text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
-        }
-
-        .version {
+        >.version {
             margin-left: 12px;
             font-size: 60%;
         }
@@ -77,6 +74,16 @@ $WebsiteHeaderSmallMarginTop: 9vh;
 
         &[data-searching=true] {
             margin-top: 6vh;
+        }
+
+        >span {
+
+            >.text-sen,
+            >.text-yu,
+            >.text-dao,
+            >.text-hang {
+                text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            }
         }
     }
 }
