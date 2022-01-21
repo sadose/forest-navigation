@@ -1,20 +1,24 @@
 import { combineReducers } from "redux";
+import { FavoritesItem, Wallpapers } from "../definitions/ModelsDef";
 
 import { ReduxAction } from "../definitions/ReduxDef";
-import { USER_WALLPAPER } from "../definitions/UserSettingsDef";
+import { SearchEngine } from "../definitions/SearchEnginesDef";
 
-import getUserSettings from "../utils/userSettings/getUserSettings";
+import {
+  USER_WALLPAPER_SETTING,
+  IS_SEARCHING,
+  SEARCH_TEXT,
+  USER_SEARCH_ENGINES_SETTING,
+  USER_FAVORITES_SETTING,
+} from "./actionTypes";
 
-import { CHANGE_WALLPAPER, IS_SEARCHING, SEARCH_TEXT } from "./actionTypes";
+// Reducer 函数用来处理各个状态的变动，其函数名称为对应 Action 函数去掉 Creater 后缀
 
 // Wallpaper 相关
 
-function changeWallpaper(state: string = "", action: ReduxAction) {
-  if (!state) {
-    state = getUserSettings(USER_WALLPAPER);
-  }
+function userWallpaper(state: Wallpapers = "beach", action: ReduxAction) {
   switch (action.type) {
-    case CHANGE_WALLPAPER:
+    case USER_WALLPAPER_SETTING:
       return action.data;
     default:
       return state;
@@ -41,10 +45,34 @@ function searchText(state: string = "", action: ReduxAction) {
   }
 }
 
-// 导出
+function userSearchEngines(state: SearchEngine[] = [], action: ReduxAction) {
+  switch (action.type) {
+    case USER_SEARCH_ENGINES_SETTING:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
+// Favorites 相关
+
+function userFavorites(state: FavoritesItem[] = [], action: ReduxAction) {
+  switch (action.type) {
+    case USER_FAVORITES_SETTING:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
+// 组合导出
 
 export const finalReducer = combineReducers({
-  changeWallpaper,
+  userWallpaper,
+
   isSearching,
   searchText,
+  userSearchEngines,
+
+  userFavorites,
 });

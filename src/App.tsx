@@ -5,11 +5,13 @@ import HomeHeader from "./components/HomeHeader";
 import HomeContent from "./components/HomeContent";
 
 import { initUserSettings } from "./utils/userSettings/getUserSettings";
+import clearLocalStorage from "./utils/clearLocalStorage/clearLocalStorage";
 
 import "./App.scss";
 
 function App() {
   initUserSettings();
+  clearLocalStorage();
   return (
     <div className="App">
       <Wallpaper />

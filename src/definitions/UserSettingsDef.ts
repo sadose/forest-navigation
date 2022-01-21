@@ -1,13 +1,17 @@
 import { FavoritesItem, Wallpapers } from "./ModelsDef";
 import { SearchEngine } from "./SearchEnginesDef";
 
-export type UserSetting = "userWallpaperSetting" | "userFavoritesList" | "userSearchEngines";
+// 用户配置项
 
-export const USER_WALLPAPER: UserSetting = "userWallpaperSetting";
-export const USER_FAVORITES: UserSetting = "userFavoritesList";
+export type UserSetting = "userWallpaper" | "userFavorites" | "userSearchEngines";
+
+export const USER_WALLPAPER: UserSetting = "userWallpaper";
+export const USER_FAVORITES: UserSetting = "userFavorites";
 export const USER_SEARCH_ENGINES: UserSetting = "userSearchEngines";
 
 export const AllUaerSettings = [USER_WALLPAPER, USER_FAVORITES, USER_SEARCH_ENGINES];
+
+// 默认配置数据
 
 export const UserSettingsDefault = {
   [USER_WALLPAPER]: "beach" as Wallpapers,

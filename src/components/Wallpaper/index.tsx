@@ -8,7 +8,7 @@ import "./index.scss";
 
 export default function Wallpaper() {
   const userWallpaperSetting: Wallpapers = useSelector<ReduxState, any>(
-    (state) => state.changeWallpaper
+    (state) => state.userWallpaper
   );
   const wallpaperBlurState: boolean = useSelector<ReduxState, any>((state) => state.isSearching);
 
