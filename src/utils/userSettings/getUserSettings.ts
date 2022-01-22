@@ -9,7 +9,7 @@ import { ActionMap } from "../../redux/actions";
 
 import store from "../../redux/store";
 
-export default function getUserSettings(settingName: UserSetting) {
+export default function getUserSetting(settingName: UserSetting) {
   // 从 Redux store 获取用户配置
   return store.getState()[settingName];
 }
@@ -21,17 +21,14 @@ function initUserSettingsFromLocal(settingName: UserSetting) {
     try {
       const r = JSON.parse(settingContent);
       store.dispatch(ActionMap[settingName](r));
-      // return r;
     } catch (error) {
       console.log(settingName);
       console.log(ActionMap[settingName]);
       store.dispatch(ActionMap[settingName](settingContent));
-      // return settingContent;
     }
   } else {
     window.localStorage.setItem(settingName, JSON.stringify(UserSettingsDefault[settingName]));
     store.dispatch(ActionMap[settingName](UserSettingsDefault[settingName]));
-    // return UserSettingsDefault[settingName];
   }
 }
 
@@ -45,6 +42,6 @@ export function initUserSettings() {
 }
 
 export function getDefaultSearchUrl() {
-  const searchEngings: SearchEngine[] = getUserSettings(USER_SEARCH_ENGINES);
+  const searchEngings: SearchEngine[] = getUserSetting(USER_SEARCH_ENGINES);
   return AllSearchEngines[searchEngings[0]].url;
 }

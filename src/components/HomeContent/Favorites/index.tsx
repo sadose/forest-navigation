@@ -5,7 +5,7 @@ import { FavoritesItem } from "../../../definitions/ModelsDef";
 import { ReduxState } from "../../../definitions/ReduxDef";
 import { USER_FAVORITES } from "../../../definitions/UserSettingsDef";
 
-import getUserSettings from "../../../utils/userSettings/getUserSettings";
+import getUserSetting from "../../../utils/userSettings/getUserSettings";
 
 import "./index.scss";
 
@@ -16,7 +16,7 @@ function favoritesItemClick(url: string) {
 }
 
 export default function Favorites() {
-  let favoritesList: FavoritesItem[] = getUserSettings(USER_FAVORITES);
+  let favoritesList: FavoritesItem[] = getUserSetting(USER_FAVORITES);
   const [favoritesData, setFavoritesData] = useState(favoritesList);
   const [boxShow, setBoxShow] = useState(false);
   const isSearching: boolean = useSelector<ReduxState, any>((state) => state.isSearching);

@@ -7,7 +7,7 @@ import { USER_SEARCH_ENGINES } from "../../../../definitions/UserSettingsDef";
 
 import { isSearchingCreater, searchTextCreater } from "../../../../redux/actions";
 
-import getUserSettings from "../../../../utils/userSettings/getUserSettings";
+import getUserSetting from "../../../../utils/userSettings/getUserSettings";
 
 import "./index.scss";
 
@@ -20,7 +20,7 @@ function searchBtnClick(url: string, text: string) {
 export default function SearchButton() {
   const searchText: string = useSelector<ReduxState, any>((state) => state.searchText);
   const dispatch = useDispatch();
-  const searchEngings: SearchEngine[] = getUserSettings(USER_SEARCH_ENGINES);
+  const searchEngings: SearchEngine[] = getUserSetting(USER_SEARCH_ENGINES);
   return (
     <div className="SearchButton">
       {searchText ? (

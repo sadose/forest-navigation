@@ -9,7 +9,7 @@ import {
 
 // Wallpaper 相关
 
-export const USER_WALLPAPER_SETTING = USER_WALLPAPER as string; // User setting
+export const USER_WALLPAPER_SETTING: string = USER_WALLPAPER; // User setting
 
 // Search 相关
 
