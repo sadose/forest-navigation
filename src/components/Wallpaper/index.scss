@@ -8,9 +8,7 @@ $WallpaperPadSize: -10px;
     bottom: $WallpaperPadSize;
     z-index: -1;
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background-color: rgb(190, 222, 235);
 
     filter: blur(0px);
 
@@ -19,5 +17,15 @@ $WallpaperPadSize: -10px;
     &[data-searching=true] {
         transform: scale(1.1);
         filter: blur(10px) brightness(115%);
+    }
+
+    >img {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 300ms linear;
     }
 }

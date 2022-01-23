@@ -1,7 +1,6 @@
 export type Wallpapers =
   | "userUploaded"
   | "beach"
-  | "lighthouse" //
   | "mountain"
   | "starrySky"
   | "volcano";
