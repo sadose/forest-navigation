@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { FavoritesItem } from "../../../definitions/ModelsDef";
 import { ReduxState } from "../../../definitions/ReduxDef";
 import { USER_FAVORITES } from "../../../definitions/UserSettingsDef";
+
+import { isFavoritesBoxShownCreater } from "../../../redux/actions";
 
 import getUserSetting from "../../../utils/userSettings/getUserSettings";
 
@@ -18,19 +20,22 @@ function favoritesItemClick(url: string) {
 export default function Favorites() {
   let favoritesList: FavoritesItem[] = getUserSetting(USER_FAVORITES);
   const [favoritesData, setFavoritesData] = useState(favoritesList);
-  const [boxShow, setBoxShow] = useState(false);
+  const isFavoritesBoxShown: boolean = useSelector<ReduxState, any>(
+    (state) => state.isFavoritesBoxShown
+  );
   const isSearching: boolean = useSelector<ReduxState, any>((state) => state.isSearching);
+  const dispatch = useDispatch();
   return (
     <div className="Favorites disable-selection" data-close={isSearching}>
       <div className="star">
         <img
           src={require("./assets/star.png")}
           alt="star"
-          data-active={boxShow}
-          onClick={() => setBoxShow(!boxShow)}
+          data-active={isFavoritesBoxShown}
+          onClick={() => dispatch(isFavoritesBoxShownCreater(!isFavoritesBoxShown))}
         />
       </div>
-      <div className="favorites-con" data-show={boxShow}>
+      <div className="favorites-con" data-show={isFavoritesBoxShown}>
         {favoritesData.map((value) => (
           <div className="item" key={value.title} onClick={favoritesItemClick(value.url)}>
             <img

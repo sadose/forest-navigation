@@ -20,4 +20,6 @@ export const USER_SEARCH_ENGINES_SETTING: string = USER_SEARCH_ENGINES; // User 
 
 // Favorites 相关
 
+export const IS_FAVORITES_BOX_SHOWN = "isFavoritesBoxShown";
+
 export const USER_FAVORITES_SETTING: string = USER_FAVORITES; // User setting

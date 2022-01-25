@@ -10,6 +10,7 @@ import {
   SEARCH_TEXT,
   USER_SEARCH_ENGINES_SETTING,
   USER_FAVORITES_SETTING,
+  IS_FAVORITES_BOX_SHOWN,
 } from "./actionTypes";
 
 // Reducer 函数用来处理各个状态的变动，其函数名称为对应 Action 函数去掉 Creater 后缀
@@ -56,6 +57,15 @@ function userSearchEngines(state: SearchEngine[] = [], action: ReduxAction) {
 
 // Favorites 相关
 
+function isFavoritesBoxShown(state: boolean = false, action: ReduxAction) {
+  switch (action.type) {
+    case IS_FAVORITES_BOX_SHOWN:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 function userFavorites(state: FavoritesItem[] = [], action: ReduxAction) {
   switch (action.type) {
     case USER_FAVORITES_SETTING:
@@ -74,5 +84,6 @@ export const finalReducer = combineReducers({
   searchText,
   userSearchEngines,
 
+  isFavoritesBoxShown,
   userFavorites,
 });

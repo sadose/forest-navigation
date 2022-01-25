@@ -4,13 +4,15 @@ import {
   SEARCH_TEXT,
   USER_SEARCH_ENGINES_SETTING,
   USER_FAVORITES_SETTING,
+  IS_FAVORITES_BOX_SHOWN,
 } from "./actionTypes";
 
 import { FavoritesItem, Wallpapers } from "../definitions/ModelsDef";
 import { ReduxAction } from "../definitions/ReduxDef";
 import { SearchEngine } from "../definitions/SearchEnginesDef";
 
-// Action 函数的名称为对应 ActionType 的名称改为小驼峰后 SETTING 后缀改为 Creater 后缀
+// 用户配置的 Action 函数的名称为对应 ActionType 的名称改为小驼峰后 SETTING 后缀改为 Creater 后缀
+// 其余 state 的 Action 函数的名称为对应 ActionType 的名称加上 Creater 后缀
 
 // Wallpaper 相关
 
@@ -43,6 +45,13 @@ export const userSearchEnginesCreater: (
 });
 
 // Favorites 相关
+
+export const isFavoritesBoxShownCreater: (isFavoritesBoxShown: boolean) => ReduxAction = (
+  isFavoritesBoxShown: boolean
+) => ({
+  type: IS_FAVORITES_BOX_SHOWN,
+  data: isFavoritesBoxShown,
+});
 
 export const userFavoritesCreater: (userFavorites: FavoritesItem[]) => ReduxAction = (
   userFavorites: FavoritesItem[]

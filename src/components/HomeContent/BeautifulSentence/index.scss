@@ -1,0 +1,45 @@
+.BeautifulSentence {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    position: relative;
+    top: 20vh;
+
+    padding: 20px;
+
+    .sentence {
+        max-width: 500px;
+
+        font-size: 13px;
+        line-height: 200%;
+        letter-spacing: 2px;
+        color: white;
+        text-shadow: 1px 1px 1px rgb(90, 90, 90), -1px -1px 1px rgb(90, 90, 90), 2px 2px 1px rgb(90, 90, 90);
+
+        opacity: 1;
+        transition: opacity 200ms linear;
+
+        &[data-show=false] {
+            opacity: 0;
+        }
+
+        .con {
+            padding-bottom: 10px;
+
+            text-align: center;
+
+            .content {
+                display: inline-block;
+
+                text-align: justify;
+            }
+        }
+
+        .origin {
+            font-size: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+    }
+}

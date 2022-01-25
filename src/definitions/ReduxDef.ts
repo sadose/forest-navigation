@@ -16,5 +16,6 @@ export interface ReduxState {
   userSearchEngines: SearchEngine[]; // User setting
 
   // Favorites 相关
+  isFavoritesBoxShown: boolean;
   userFavorites: FavoritesItem[]; // User setting
 }
