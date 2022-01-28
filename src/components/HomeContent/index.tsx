@@ -9,9 +9,9 @@ import "./index.scss";
 export default function HomeContent() {
   return (
     <div className="HomeContent">
+      <BeautifulSentence />
       <Favorites />
       <SearchPanel />
-      <BeautifulSentence />
     </div>
   );
 }

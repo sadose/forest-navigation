@@ -6,7 +6,6 @@ import { ReduxState } from "../../definitions/ReduxDef";
 import "./index.scss";
 
 export default function Wallpaper() {
-  console.log("Wallpaper 被渲染");
   const userWallpaperSetting: Wallpapers = useSelector<ReduxState, any>(
     (state) => state.userWallpaper
   );

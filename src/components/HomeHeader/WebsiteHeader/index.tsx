@@ -18,7 +18,7 @@ export default function WebsiteHeader() {
         <span className="text-yu">语</span>
         <span className="text-dao">导</span>
         <span className="text-hang">航</span>
-        <span className="version">v1.0</span>
+        <span className="version">v1.2</span>
       </span>
     </div>
   );
